@@ -33,10 +33,13 @@ const server = http.createServer((req, res) => {
     if('student' in params){
       if(params['student']== 'leon'){
         res.writeHead(200, {'Content-Type': 'application/json'});
+        
+        let flipResult = Math.ceil(Math.random()*2) === 1 ? 'heads' : 'tails';
         const objToJson = {
           name: "leon",
           status: "Boss Man",
-          currentOccupation: "Baller"
+          currentOccupation: "Baller",
+          flip: flipResult
         }
         res.end(JSON.stringify(objToJson));
       }//student = leon
